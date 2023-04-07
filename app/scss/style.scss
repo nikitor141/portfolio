@@ -1,0 +1,145 @@
+//	snippets -----------------------------------------------
+// fsc - fullscreen;
+// brg - burger;
+//---------------------------------------------------------
+
+
+// *,*::after,*::before {
+// 	-webkit-tap-highlight-color: transparent;
+// }
+
+
+// * {
+   // } 
+   // мб указывать для каждой секции то, что требуется, либо для каждого блока?
+   
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+
+input,
+textarea {
+   border-radius: 0;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+}
+
+a {
+   color: inherit;
+}
+
+button {
+   font-size: inherit;
+   color: inherit
+}
+
+//anchors -------------------------------------------------
+//scroll-margin-top: header-height
+
+// #plan, #politics, #contact {
+//    scroll-margin-top: 70px;
+// }
+
+//variables -----------------------------------------------
+
+//---------------------------------------------------------
+//js common blocks ----------------------------------------
+
+//flex wrapper---------------------------------------------
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   overflow: hidden; // не будет работать sticky
+   overflow-wrap: break-word;
+}
+
+// common -------------------------------------------------
+.container {
+   min-width: 320px;
+   max-width: 1130px; //ширина контентной части
+   padding: 0 15px; // плюсуешь 2x padding к контентной части
+   margin: 0 auto;
+}
+
+//bem blocks ----------------------------------------------
+//header --------------------------------------------------
+.header {
+	padding: 25px 0;
+	background-color: #1e0069;
+}
+
+.header__body {}
+
+.header__title {
+	font-size: 35px;
+	color: white;
+}
+//flex main -----------------------------------------------
+.content {
+   flex-grow: 1;
+}
+.gallery {
+	padding: 50px 0;
+	background-color: #f9f9f9;
+}
+
+.gallery__body {}
+
+.gallery__slide {
+   padding: 25px 40px;
+}
+
+.gallery__item {
+   display: block;
+   // padding: 0 15px;
+   overflow: hidden;
+	border-radius: 25px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+	transition: .3s;
+	&:hover, &:focus {
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
+		transform: scale(1.1);
+	}
+}
+.gallery__control {
+	width: 100px;
+	height: 100%;
+	background: #00000050;
+	backdrop-filter: blur(5px);
+	&--next {
+		right: 0;
+	}
+	&--prev {
+		left: 0;
+	}
+}
+.gallery__dots {
+	padding: 10px 0 0 0;
+}
+
+//footer --------------------------------------------------
+.footer {
+	padding: 20px;
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	background: #1e0069;
+}
+//adaptive ------------------------------------------------
+@media (min-width: 769px) {}
+
+@media (max-width: 768px) {}
+
+@media (max-width: 530px) {}
+
+//js swap blocks ------------------------------------------
