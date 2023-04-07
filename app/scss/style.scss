@@ -92,10 +92,14 @@ button {
 	background-color: #f9f9f9;
 }
 
-.gallery__body {}
+.gallery__body {
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(290px,1fr));
+	gap: 30px;
+}
 
 .gallery__slide {
-   padding: 25px 40px;
+   // padding: 25px 40px;
 }
 
 .gallery__item {
