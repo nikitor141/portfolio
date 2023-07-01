@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html', {
+"title": "Portfolio"
+})
+
+<body>
+   <div class="wrapper">
+      <!-- @@include('html/header.html', {}) -->
+      <main class="content">
+         <section class="hero">
+            <ul class="socials hero__socials" aria-expanded="false">
+               <li class="hero__socials-button" aria-label="socials button."></li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--telegram" href="https://t.me/oreshNick" target="_blank"></a>
+               </li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--github" href="https://github.com/nikitor141"
+                     target="_blank"></a>
+               </li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--email" href="mailto:nikitor141@gmail.com" target="_blank"></a>
+               </li>
+            </ul>
+            <div class="hero__content">
+               <div class="container">
+                  <div class="hero__content-body">
+                     <h1 class="hero__title">Nikita Oreshin</h1>
+                     <a class="hero__button" href="#portfolio">Portfolio</a>
+                  </div>
+               </div>
+            </div>
+            <div class="decor-item decor-item--hero-html">&lt;/&gt;</div>
+            <div class="decor-item decor-item--hero-css">{&nbsp;&nbsp;}</div>
+            <div class="decor-item decor-item--hero-js">JS</div>
+            <div class="decor-text">Frontend&nbsp;developer</div>
+         </section>
+         <section class="portfolio" id="portfolio">
+            <div class="container">
+               <div class="portfolio__body">
+                  <div class="portfolio__text">
+                     <h2 class="portfolio__title">Portfolio</h2>
+                  </div>
+                  <div class="portfolio__gallery">
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/frontend-portfolio"
+                        target="_blank">
+                        <img src="@img/content/frontend-portfolio.jpg" alt="frontend-portfolio" loading="lazy"
+                           width="333" height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Module02-Shop"
+                        target="_blank">
+                        <img src="@img/content/healthly-food.jpeg" alt="healthly-food" loading="lazy" width="333"
+                           height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Lizard-affilates"
+                        target="_blank">
+                        <img src="@img/content/Lizard-affilates.jpeg" alt="Lizard-affilates" loading="lazy" width="333"
+                           height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Beautieslife"
+                        target="_blank">
+                        <img src="@img/content/Beautieslife.jpg" alt="Beautieslife" loading="lazy" width="333"
+                           height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/oxygen" target="_blank">
+                        <img src="@img/content/oxygen.jpeg" alt="oxygen" loading="lazy" width="333" height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/bicycle" target="_blank">
+                        <img src="@img/content/bicycle.jpeg" alt="bicycle" loading="lazy" width="333" height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/landing2.0"
+                        target="_blank">
+                        <img src="@img/content/landing.jpeg" alt="landing" loading="lazy" width="333" height="186">
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/binary" target="_blank">
+                        <img src="@img/content/binary.jpeg" alt="binary" loading="lazy" width="333" height="186">
+                     </a>
+                     <div class="decor-item decor-item--portfolio-html">&lt;/&gt;</div>
+                     <div class="decor-item decor-item--portfolio-css">{&nbsp;&nbsp;}</div>
+                     <div class="decor-item decor-item--portfolio-js">JS</div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </main>
+      <!-- @@include('html/footer.html', {}) -->
+   </div>
+</body>
+
+</html>

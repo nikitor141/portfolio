@@ -1,122 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ru">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <link type="image/x-icon" rel="shortcut icon" href="favicon.ico">
-   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-   <link rel="manifest" href="site.webmanifest">
-   <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
-   <meta name="msapplication-config" content="browserconfig.xml">
 
-   <link rel="stylesheet" href="css/style.min.css">
-   <script defer src="js/main.min.js"></script>
+   <!-- favicon -->
+
+
+   <!-- <link type="image/x-icon" rel="shortcut icon" href="favicon.ico"> добавить -->
+   <!-- <meta name="msapplication-TileColor" content="#2b5797"> удалить -->
+   <!-- <meta name="theme-color" content="#ffffff"> удалить -->
+   <!-- <meta name="msapplication-config" content="browserconfig.xml"> добавить в конец-->
+   <!-- удалить / в путях во всех файлах -->
+
+
+   <!-- favicon -->
+   <!-- snippet themes -->
+   <link rel="stylesheet" href="css/style.min.css?_v=20230701192524">
+   <script defer src="js/app.min.js?_v=20230701192524"></script>
    <title>Portfolio</title>
 </head>
 
 <body>
-   <!-- 
-   snippets:
-   brg - burger;
- -->
-
-   <!-- slider layout -->
-
-   <!-- <div class="slider" data-visible="3">
-            <div class="slider__wrapper">
-               <div class="slider__track">
-                  <div class="slider__slide"></div>
+   <div class="wrapper">
+      
+      <main class="content">
+         <section class="hero">
+            <ul class="socials hero__socials" aria-expanded="false">
+               <li class="hero__socials-button" aria-label="socials button."></li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--telegram" href="https://t.me/oreshNick" target="_blank"></a>
+               </li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--github" href="https://github.com/nikitor141"
+                     target="_blank"></a>
+               </li>
+               <li class="socials__item">
+                  <a class="socials__link socials__link--email" href="mailto:nikitor141@gmail.com" target="_blank"></a>
+               </li>
+            </ul>
+            <div class="hero__content">
+               <div class="container">
+                  <div class="hero__content-body">
+                     <h1 class="hero__title">Nikita Oreshin</h1>
+                     <a class="hero__button" href="#portfolio">Portfolio</a>
+                  </div>
                </div>
             </div>
-         </div> -->
-
-   <!-- -------- -->
-
-   <div class="wrapper">
-      <header class="header">
-         <div class="container">
-            <div class="header__body">
-               <h1 class="header__title">Portfolio</h1>
-            </div>
-         </div>
-      </header>
-      <main class="content">
-         <section class="gallery">
+            <div class="decor-item decor-item--hero-html">&lt;/&gt;</div>
+            <div class="decor-item decor-item--hero-css">{&nbsp;&nbsp;}</div>
+            <div class="decor-item decor-item--hero-js">JS</div>
+            <div class="decor-text">Frontend&nbsp;developer</div>
+         </section>
+         <section class="portfolio" id="portfolio">
             <div class="container">
-               <div class="slider gallery__body" data-visible="2" data-infinite="true">
-                  <!-- <div class="slider__wrapper"> -->
-                  <!-- <div class="slider__track"> -->
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/Lizard-affilates" target="_blank"
-                        tabindex="0">
-                        <picture>
-                           <source srcset="img/content/Lizard.webp" type="image/webp">
-                           <img src="img/content/Lizard.jpeg" alt="Lizard-affilates" width="1600" height="895">
-                        </picture>
-                     </a>
+               <div class="portfolio__body">
+                  <div class="portfolio__text">
+                     <h2 class="portfolio__title">Portfolio</h2>
                   </div>
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/oxygen" target="_blank" tabindex="0">
-                        <picture>
-                           <source srcset="img/content/oxygen.webp" type="image/webp">
-                           <img src="img/content/oxygen.jpeg" alt="oxygen" width="1600" height="895">
-                        </picture>
+                  <div class="portfolio__gallery">
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/frontend-portfolio"
+                        target="_blank">
+                        <img src="img/content/frontend-portfolio.jpg" alt="frontend-portfolio" loading="lazy"
+                           width="333" height="186">
                      </a>
-                  </div>
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/Beautieslife/" target="_blank"
-                        tabindex="0">
-                        <picture>
-                           <source srcset="img/content/Beautieslife.webp" type="image/webp">
-                           <img src="img/content/Beautieslife.jpg" alt="beautieslife" width="1600" height="895">
-                        </picture>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Module02-Shop"
+                        target="_blank">
+                        <img src="img/content/healthly-food.jpeg" alt="healthly-food" loading="lazy" width="333"
+                           height="186">
                      </a>
-                  </div>
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/bicycle" target="_blank" tabindex="0">
-                        <picture>
-                           <source srcset="img/content/bicycle.webp" type="image/webp">
-                           <img src="img/content/bicycle.jpeg" alt="Bicycle" width="1600" height="895">
-                        </picture>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Lizard-affilates"
+                        target="_blank">
+                        <img src="img/content/Lizard-affilates.jpeg" alt="Lizard-affilates" loading="lazy" width="333"
+                           height="186">
                      </a>
-                  </div>
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/binary" target="_blank" tabindex="0">
-                        <picture>
-                           <source srcset="img/content/binary.webp" type="image/webp">
-                           <img src="img/content/binary.jpeg" alt="binary" width="1600" height="895">
-                        </picture>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Beautieslife"
+                        target="_blank">
+                        <img src="img/content/Beautieslife.jpg" alt="Beautieslife" loading="lazy" width="333"
+                           height="186">
                      </a>
-                  </div>
-                  <div class="slider__slide gallery__slide">
-                     <a class="gallery__item" href="https://nikitor141.github.io/landing2.0" target="_blank"
-                        tabindex="0">
-                        <picture>
-                           <source srcset="img/content/landing.webp" type="image/webp">
-                           <img src="img/content/landing.jpeg" alt="landing" width="1600" height="895">
-                        </picture>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/oxygen" target="_blank">
+                        <picture><source srcset="img/content/oxygen.webp" type="image/webp"><img src="img/content/oxygen.jpeg" alt="oxygen" loading="lazy" width="333" height="186"></picture>
                      </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/bicycle" target="_blank">
+                        <picture><source srcset="img/content/bicycle.webp" type="image/webp"><img src="img/content/bicycle.jpeg" alt="bicycle" loading="lazy" width="333" height="186"></picture>
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/landing2.0"
+                        target="_blank">
+                        <picture><source srcset="img/content/landing.webp" type="image/webp"><img src="img/content/landing.jpeg" alt="landing" loading="lazy" width="333" height="186"></picture>
+                     </a>
+                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/binary" target="_blank">
+                        <picture><source srcset="img/content/binary.webp" type="image/webp"><img src="img/content/binary.jpeg" alt="binary" loading="lazy" width="333" height="186"></picture>
+                     </a>
+                     <div class="decor-item decor-item--portfolio-html">&lt;/&gt;</div>
+                     <div class="decor-item decor-item--portfolio-css">{&nbsp;&nbsp;}</div>
+                     <div class="decor-item decor-item--portfolio-js">JS</div>
                   </div>
-
-
-                  <!-- </div> -->
-                  <!-- </div> -->
-                  <!-- <button
-                     class="slider__control slider__control--prev gallery__control gallery__control--prev"></button>
-                  <button
-                     class="slider__control slider__control--next gallery__control gallery__control--next"></button>
-                  <div class="slider__dots gallery__dots"></div> -->
                </div>
             </div>
          </section>
       </main>
-      <footer class="footer">
-         in work
-      </footer>
+      
    </div>
 </body>
 

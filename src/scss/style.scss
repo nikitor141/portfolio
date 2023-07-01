@@ -1,0 +1,583 @@
+@import "fonts";
+@import "reset";
+
+//functions and mixins ------------------------------------
+
+@function HexToRGB($hex) {
+   @return red($hex), green($hex), blue($hex);
+}
+ 
+ @function cl($name, $opacity: false) {
+   @if $opacity {
+     @return rgba(var(--color-#{unquote($name)}--rgb), $opacity);
+   } @else {
+     @return var(--color-#{unquote($name)});
+   }
+}
+
+@function rem($pixels) {
+   @return calc($pixels / 10) + rem;
+} 
+
+@mixin tabletReset {
+   @media (min-width: (1025px)) {
+      @content;
+   }
+}
+@mixin tablet {
+   @media (max-width: (1024px)) {
+      @content;
+   }
+}
+@mixin tabletOnly {
+   @media (max-width: (1024px)) and (min-width: (531px)) {
+      @content;
+   }
+}
+@mixin mobileReset {
+   @media (min-width: (531px)) {
+      @content;
+   }
+}
+ @mixin mobile {
+   @media (max-width: (530px)) {
+      @content;
+   }
+}
+ 
+//variables -----------------------------------------------
+
+$colors : (
+   "primary" : #3558CA,
+   "secondary" : #23262F,
+   "dark" : #121E45,
+   "accent" : #4C65B8
+);
+
+:root {
+   @each $key, $value in $colors {
+   --color-#{$key} : #{$value};
+   --color-#{$key}--rgb : #{HexToRGB($value)};
+   }
+}
+
+//scss  ---------------------------------------------------
+
+%title {
+   font-size: rem(100);
+   font-weight: 700;
+   color: white;
+   text-shadow: 0 0 rem(20) cl("primary");
+   
+   @include tablet {
+      font-size: rem(85);
+   }
+   @include mobile {
+      font-size: rem(55);
+   }
+}
+
+//keyframes -----------------------------------------------
+
+@keyframes arrow {
+   0% {
+      transform: translate(-50%, 0)
+   }
+   100% {
+      transform: translate(-50%, rem(10))
+   }
+}
+@keyframes pulse {
+   0% {
+      opacity: 0;
+   }
+   100% {
+      opacity: 0.4;
+   }
+}
+
+//global ---------------------------------------------------
+
+img, svg, video {
+   width: 100%;
+   max-width: 100%;
+   height: auto;
+   max-height: 100%;
+}
+
+html {
+   --refRes: 1920;
+   scroll-behavior: smooth;
+   -webkit-tap-highlight-color: transparent;
+   font-size: calc(100vw / var(--refRes) * 10);
+
+   @include tablet {
+      --refRes: 768;
+   }
+   @include mobile {
+      --refRes: 320;
+   }
+}
+
+body {
+   font-family: "Rubik", sans-serif;
+   font-size: rem(14);
+
+   &.active {
+      overflow: hidden;
+   }
+}
+
+//anchors -------------------------------------------------
+
+// #foo,... {
+//    scroll-margin-top: var(--header-height);
+// }
+
+//js common blocks ----------------------------------------
+
+
+
+//flex wrapper---------------------------------------------
+
+.wrapper {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   min-height: 100%;
+   overflow: hidden; // не будет работать sticky
+   overflow-wrap: break-word;
+}
+
+
+// common -------------------------------------------------
+
+.container {
+   min-width: 320px;
+   max-width: rem(1470); //ширина контентной части
+   padding: 0 rem(15); // плюсуешь 2x padding к контентной части
+   margin: 0 auto;
+}
+
+//bem blocks ----------------------------------------------
+
+.socials {
+   display: flex;
+   gap: rem(50);
+   align-items: center;
+
+   @include tablet {
+      gap: rem(30);
+   }
+
+   &__item {}
+   
+   &__link {
+      display: block;
+      width: rem(50);
+      height: rem(50);
+      background:  center / contain no-repeat cl("primary");
+      border-radius: 50%;
+      box-shadow: 0 rem(4) rem(4) cl(primary, .7);
+      transition-duration: .3s;
+      transition-property: box-shadow, background-color;
+
+      &:hover {
+         background-color: white;
+         box-shadow: 0 rem(4) rem(8) white;
+      }
+   }
+
+   &__link--telegram {
+      background-image: url("@img/icons/telegram.svg");
+   }
+
+   &__link--github {
+      background-image: url("@img/icons/github.svg");
+   }
+
+   &__link--email {
+      background-image: url("@img/icons/email.svg");
+   }
+}
+
+.decor-item {
+   position: absolute;
+   font-size: rem(50);
+   font-weight: 700;
+   color: white;
+   pointer-events: none;
+
+   @include tablet {
+      font-size: rem(35);
+   }
+
+   &--hero-html {
+      top: rem(300);
+      left: rem(230);
+      transform: rotate(-10deg);
+
+      @include tablet {
+         top: 18%;
+         left: rem(60);
+      }
+      @include mobile {
+         top: 10%;
+         left: rem(10);
+      }
+   }
+
+   &--hero-css {
+      top: rem(123);
+      left: rem(835);
+      transform: rotate(25deg);
+
+      @include tablet {
+         top: auto;
+         bottom: 25%;
+         left: 35%;
+      }
+      @include mobile {
+         bottom: 15%;
+         left: 15%;
+      }
+   }
+
+   &--hero-js {
+      top: rem(405);
+      right: rem(160);
+      transform: rotate(-15deg);
+
+      @include tablet {
+         top: 25%;
+         right: rem(90);
+      }
+      @include mobile {
+         top: 50%;
+         right: rem(10);
+      }
+   }
+
+   &--portfolio-html {
+      top: rem(20);
+      left: rem(-60);
+      z-index: -1;
+      transform: rotateZ(15deg);
+      
+      @include tablet {
+         top: 23%;
+         left: 20%;
+      }
+      @include mobile {
+         top: 11%;
+      }
+   }
+
+   &--portfolio-css {
+      top: 0;
+      right: rem(-40);
+      z-index: -1;
+      transform: rotateZ(-25deg);
+
+      @include tablet {
+         top: 50%;
+         right: 20%;
+      }
+      @include mobile {
+         top: 49%;
+      }
+   }
+
+   &--portfolio-js {
+      right: rem(-70);
+      bottom: 0;
+      z-index: -1;
+      transform: rotateZ(25deg);
+
+      @include tablet {
+         right: 60%;
+         bottom: 0;
+      }
+      @include mobile {
+         bottom: -1%;
+      }
+   }
+}
+
+.decor-text {
+   position: absolute;
+   bottom: rem(-35);
+   left: -28%;
+   font-size: rem(300);
+   font-weight: 700;
+   color: rgba(255, 255, 255, .15);
+   pointer-events: none;
+
+   @include tablet {
+      left: -35%;
+      font-size: rem(150);
+   }
+}
+
+.lazy-image {
+   position: relative;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+
+   &::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background-color: white;
+      opacity: 0;
+      animation: pulse 1.5s linear infinite alternate;
+   }
+   img {
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+   }
+   &.loaded {
+      &::before {
+         content: none;
+         animation: none;
+      }
+      img {
+         opacity: 1;
+      }
+   }
+}
+//header --------------------------------------------------
+
+.header {}
+
+//flex main -----------------------------------------------
+
+.content {
+   flex-grow: 1;
+}
+
+.hero {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   min-height: 100vh;
+   min-height: 100svh;
+   padding: rem(140) 0;
+   background-color: cl("secondary");
+
+   @include tablet {
+      padding: rem(70) 0 rem(140);
+   }
+
+   &__socials {
+      position: absolute;
+      top: rem(180);
+      right: rem(200);
+
+      @include tablet {
+         top: rem(60);
+         right: rem(80);
+      }
+      @include mobile {
+         position: fixed;
+         right: 0;
+         z-index: 1;
+         gap: 0;
+         padding: rem(10) 0;
+         background-color: white ;
+         box-shadow:  0 0 rem(10) white;
+         transition: .3s;
+         transform: translateX(calc(100% - rem(32)));
+      }
+      &[aria-expanded="true"] {
+         transform: none;
+      }
+
+      li {
+         @include mobile {
+            margin: 0 rem(30) 0 0;
+         }
+      }
+
+      .socials__link {
+         @include mobile {
+            background-color: white;
+            box-shadow: none;
+         }
+      }
+
+      &-button {
+         display: grid;
+         place-items: center;
+         align-self: stretch;
+         width: rem(32);
+         cursor: pointer;
+
+         &::after {
+            width: rem(33);
+            height: rem(13);
+            content: "";
+            background: url("@img/icons/arrow.svg") center / rem(22) rem(13) no-repeat;
+            filter: invert(180);
+            transform: rotateZ(90deg);
+         }
+
+         [aria-expanded="true"] &::after {
+            transform: rotateZ(-90deg);
+         }
+
+         @include mobileReset {
+            display: none;
+         }
+         @include mobile {
+            margin: 0 rem(15) 0 0;
+         }
+      }
+
+      &.scrolled {
+         position: fixed;
+         top: 0;
+         right: 0;
+         z-index: 1;
+         padding: rem(25);
+         background-color: cl("primary", .3);
+         backdrop-filter: blur(rem(8));
+         border: rem(2) solid rgba(255, 255, 255, .2);
+         border-radius: 0 0 0 rem(25);
+
+         @include mobile {
+            flex-direction: column;
+         }
+      }
+   }
+
+   &__content {
+      display: flex;
+      flex: 1 0 100%;
+      align-items: center;
+   }
+   
+   &__content-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+
+   &__title {
+      margin: 0 0 rem(80) 0;
+      @extend %title;
+      
+      @include mobile {
+         margin: 0 0 rem(40) 0;
+         text-align: center;
+      }
+   }
+
+   &__button {
+      width: rem(450);
+      padding: .92em rem(15);
+      font-size: rem(24);
+      font-weight: 700;
+      color: white;
+      text-align: center;
+      background-color: cl("primary");
+      border-radius: rem(20);
+      box-shadow: 0 0 rem(15) cl("accent", .7);
+      transition: box-shadow .3s;
+
+      @include tablet {
+         width: rem(350);
+      }
+      @include mobile {
+         width: rem(200);
+         font-size: rem(16);
+      }
+
+      &:hover {
+         box-shadow: 0 0 rem(20) cl("accent");
+      }
+
+      &::after {
+         position: absolute;
+         bottom: rem(230);
+         left: 50%;
+         width: rem(22);
+         height: rem(13);
+         content: "";
+         background: url("@img/icons/arrow.svg") center / contain no-repeat;
+         transform: translateX(-50%);
+         animation: arrow 1s ease-in-out infinite alternate;
+
+         @include tablet {
+            bottom: rem(130);
+            width: rem(35.5);
+            height: rem(21);
+         }
+      }
+   }
+}
+
+.portfolio {
+   padding: rem(140) 0 rem(70);
+   background: cl("secondary");
+
+   @include mobile {
+      padding: rem(100) 0 rem(70);
+   }
+
+   &__body {}
+
+   &__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 0 rem(70) 0;
+
+      @include mobile {
+         margin: 0 0 rem(40) 0;
+      }
+   }
+
+   &__title {
+      @extend %title;
+   }
+
+   &__gallery {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(30);
+      padding: rem(80) 0;
+      isolation: isolate;
+
+      @include tablet {
+         grid-template-columns: 1fr 1fr;
+         padding: rem(20) 0;
+      }
+      @include mobile {
+         grid-template-columns: 1fr;
+      }
+   }
+
+   &__item {
+      flex: 1;
+      overflow: hidden;
+      border: rem(2) solid cl("accent");
+      border-radius: rem(25);
+      box-shadow: 0 0 rem(15) cl("accent");
+      transition: .3s;
+
+      &:hover {
+         box-shadow: 0 0 rem(20) rem(5) cl("accent");
+      }
+   }
+}
+
+//footer --------------------------------------------------
+
+.footer {}
+
+
+//js swap blocks ------------------------------------------

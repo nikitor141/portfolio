@@ -1,96 +1,46 @@
-const { src, dest, watch, parallel, series } = require('gulp');
+import gulp from 'gulp';
 
-const scss = require('gulp-sass')(require('sass'));
-const concat = require('gulp-concat');
-const browserSync = require('browser-sync').create();
-const uglify = require('gulp-uglify-es').default;
-const autoprefixer = require('gulp-autoprefixer');
-const imagemin = require('gulp-imagemin');
-const del = require('del');
+import { path } from './gulp/config/path.js';
 
-function browsersync() {
-   browserSync.init({
-      server: {
-         baseDir: 'app/'
-      },
-      browser: "firefox developer edition"
-   });
+import { plugins } from "./gulp/config/plugins.js";
+
+global.app = {
+   isBuild: process.argv.includes('--build'),
+   isDev: !process.argv.includes('--build'),
+   path: path,
+   gulp: gulp,
+   plugins: plugins
 }
 
-function cleanDist() {
-   return del('dist');
+import { favicons } from './gulp/tasks/favicons.js';
+import { reset } from './gulp/tasks/reset.js';
+import { html } from './gulp/tasks/html.js';
+import { server } from './gulp/tasks/server.js';
+import { scss } from './gulp/tasks/scss.js';
+import { js } from './gulp/tasks/js.js';
+import { images } from './gulp/tasks/images.js';
+import { otfToTtf, ttfToWoff, fontsStyle } from './gulp/tasks/fonts.js';
+import { zip } from './gulp/tasks/zip.js';
+
+function watcher() {
+   gulp.watch(path.watch.favicons, favicons)
+   gulp.watch(path.watch.html, html)
+   gulp.watch(path.watch.scss, scss)
+   gulp.watch(path.watch.js, js)
+   gulp.watch(path.watch.images, images)
 }
 
-function images() {
-   return src('app/img/**/*')
-      .pipe(imagemin(
-         [
-            imagemin.gifsicle({ interlaced: true }),
-            imagemin.mozjpeg({ quality: 75, progressive: true }),
-            imagemin.optipng({ optimizationLevel: 5 }),
-            imagemin.svgo({
-               plugins: [
-                  { removeViewBox: true },
-                  { cleanupIDs: false }
-               ]
-            })
-         ]
-      ))
-      .pipe(dest('dist/img'))
-}
 
-function scripts() {
-   return src([
-      'app/js/main.js'
-   ])
-      .pipe(concat('main.min.js'))
-      .pipe(uglify())
-      .pipe(dest('app/js'))
-      .pipe(browserSync.stream())
-}
+const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
-function styles() {
-   return src([
-      'app/scss/fonts.scss',
-      'app/scss/reset.scss',
-      'app/scss/slider.scss',
-      'app/scss/style.scss'
-   ])
-      .pipe(scss({ outputStyle: 'compressed' }))
-      .pipe(concat('style.min.css'))
-      .pipe(autoprefixer({
-         overrideBrowserslist: ['last 10 version'],
-         grid: true
-      }))
-      .pipe(dest('app/css'))
-      .pipe(browserSync.stream())
-}
+const mainTasks = gulp.series(fonts, gulp.parallel(favicons, html, scss, js, images));
 
-function watching() {
-   watch('app/scss/**/*.scss', styles);
-   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
-   watch(['app/*.html']).on('change', browserSync.reload);
-}
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
+const build = gulp.series(reset, mainTasks);
+const deployZIP = gulp.series(reset, mainTasks, zip);
 
-function build() {
-   return src([
-      'app/css/style.min.css',
-      'app/*.png', 'app/*.svg', 'app/*.ico', 'app/*.xml', 'app/*.webmanifest',
-      'app/video/**/*',
-      'app/fonts/**/*',
-      'app/js/main.min.js',
-      'app/*.html'
-   ], { base: 'app' })
-      .pipe(dest('dist'))
-}
+export { dev }
+export { build }
+export { deployZIP }
 
-exports.styles = styles;
-exports.watching = watching;
-exports.browsersync = browsersync;
-exports.scripts = scripts;
-exports.images = images;
-exports.cleanDist = cleanDist;
-
-
-exports.build = series(cleanDist, images, build);
-exports.default = parallel(styles, scripts, browsersync, watching);
+gulp.task('default', dev);
