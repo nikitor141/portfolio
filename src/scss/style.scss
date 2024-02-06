@@ -515,6 +515,10 @@ body {
             width: rem(35.5);
             height: rem(21);
          }
+
+         @include mobile {
+            bottom: rem(90);
+         }
       }
    }
 }
@@ -540,16 +544,32 @@ body {
       grid-template-columns: repeat(5, rem(220));
       gap: rem(40);
       justify-content: space-between;
+
+      @include tablet {
+         grid-template-columns: repeat(3, rem(220));
+      }
+      @include mobile {
+         grid-template-columns: repeat(2, minmax(0, 1fr));
+         gap: rem(20);
+      }
    }
 
    &__item {
       padding: rem(25);
       background-color: white;
       border-radius: rem(25);
+
+      @include mobile {
+         padding: rem(20);
+      }
    }
 
    &__item-image {
       margin: 0 0 rem(25) 0;
+
+      @include mobile {
+         margin-bottom: rem(20);
+      }
    }
 
    &__item-title {
@@ -557,6 +577,10 @@ body {
       font-weight: 700;
       color: cl(secondary);
       text-align: center;
+
+      @include mobile {
+         font-size: rem(15);
+      }
    }
 }
 
