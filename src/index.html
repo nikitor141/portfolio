@@ -1,153 +1,258 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/head.html', {
-"title": "Никита Орешин - Портфолио"
-})
+   @@include('html/head.html', { "title": "Никита Орешин - Портфолио" })
 
-<body>
-   <div class="wrapper">
-      <!-- @@include('html/header.html', {}) -->
-      <main class="content">
-         <section class="hero">
-            <ul class="socials hero__socials" aria-expanded="false">
-               <li class="hero__socials-button" aria-label="socials button."></li>
-               <li class="socials__item">
-                  <a class="socials__link socials__link--telegram" href="https://t.me/oreshNick" target="_blank"></a>
-               </li>
-               <li class="socials__item">
-                  <a class="socials__link socials__link--github" href="https://github.com/nikitor141"
-                     target="_blank"></a>
-               </li>
-               <li class="socials__item">
-                  <a class="socials__link socials__link--email" href="mailto:nikitor141@gmail.com" target="_blank"></a>
-               </li>
-            </ul>
-            <div class="hero__content">
+   <body>
+      <div class="wrapper">
+         <!-- @@include('html/header.html', {}) -->
+         <main class="content">
+            <section class="hero">
+               <ul class="socials hero__socials" aria-expanded="false">
+                  <li
+                     class="hero__socials-button"
+                     aria-label="socials button."></li>
+                  <li class="socials__item">
+                     <a
+                        class="socials__link socials__link--telegram"
+                        href="https://t.me/n1kiThor"
+                        target="_blank"></a>
+                  </li>
+                  <li class="socials__item">
+                     <a
+                        class="socials__link socials__link--github"
+                        href="https://github.com/nikitor141"
+                        target="_blank"></a>
+                  </li>
+                  <li class="socials__item">
+                     <a
+                        class="socials__link socials__link--email"
+                        href="mailto:oreshnickk@gmail.com
+                        "
+                        target="_blank"></a>
+                  </li>
+               </ul>
+               <div class="hero__content">
+                  <div class="container">
+                     <div class="hero__content-body">
+                        <h1 class="hero__title">Никита Орешин</h1>
+                        <a class="hero__button" href="#portfolio">Портфолио</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="decor-item decor-item--hero-html">&lt;/&gt;</div>
+               <div class="decor-item decor-item--hero-css">{&nbsp;&nbsp;}</div>
+               <div class="decor-item decor-item--hero-js">JS</div>
+               <div class="decor-text">Frontend&nbsp;developer</div>
+            </section>
+            <section class="skills">
                <div class="container">
-                  <div class="hero__content-body">
-                     <h1 class="hero__title">Никита Орешин</h1>
-                     <a class="hero__button" href="#portfolio">Портфолио</a>
+                  <div class="skills__body">
+                     <h2 class="skills__title">Мои навыки</h2>
+                     <ul class="skills__grid">
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/html.svg"
+                                 alt="HTML"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">HTML</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/css.svg"
+                                 alt="CSS"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">CSS</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/js.svg"
+                                 alt="JS"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">JS</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/scss.svg"
+                                 alt="SCSS"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">SCSS</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/gulp.svg"
+                                 alt="GULP"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">GULP</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/webpack.svg"
+                                 alt="WEBPACK"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">WEBPACK</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/git.svg"
+                                 alt="GIT"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">GIT</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/figma.svg"
+                                 alt="FIGMA"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">FIGMA</h3>
+                        </li>
+                        <li class="skills__item">
+                           <div class="skills__item-image">
+                              <img
+                                 src="@img/icons/photoshop.svg"
+                                 alt="PHOTOSHOP"
+                                 width="100"
+                                 height="100" />
+                           </div>
+                           <h3 class="skills__item-title">PHOTOSHOP</h3>
+                        </li>
+                     </ul>
                   </div>
                </div>
-            </div>
-            <div class="decor-item decor-item--hero-html">&lt;/&gt;</div>
-            <div class="decor-item decor-item--hero-css">{&nbsp;&nbsp;}</div>
-            <div class="decor-item decor-item--hero-js">JS</div>
-            <div class="decor-text">Frontend&nbsp;developer</div>
-         </section>
-         <section class="skills">
-            <div class="container">
-               <div class="skills__body">
-                  <h2 class="skills__title">Мои навыки</h2>
-                  <ul class="skills__grid">
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/html.svg" alt="HTML" width="100" height="100">
+            </section>
+            <section class="portfolio" id="portfolio">
+               <div class="container">
+                  <div class="portfolio__body">
+                     <div class="portfolio__text">
+                        <h2 class="portfolio__title">Мои работы</h2>
+                     </div>
+                     <div class="portfolio__gallery">
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/frontend-portfolio"
+                           target="_blank">
+                           <img
+                              src="@img/content/frontend-portfolio.jpg"
+                              alt="frontend-portfolio"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/Module02-Shop"
+                           target="_blank">
+                           <img
+                              src="@img/content/healthly-food.jpeg"
+                              alt="healthly-food"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/Lizard-affilates"
+                           target="_blank">
+                           <img
+                              src="@img/content/Lizard-affilates.jpeg"
+                              alt="Lizard-affilates"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/Beautieslife"
+                           target="_blank">
+                           <img
+                              src="@img/content/Beautieslife.jpg"
+                              alt="Beautieslife"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/oxygen"
+                           target="_blank">
+                           <img
+                              src="@img/content/oxygen.jpeg"
+                              alt="oxygen"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/bicycle"
+                           target="_blank">
+                           <img
+                              src="@img/content/bicycle.jpeg"
+                              alt="bicycle"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/landing2.0"
+                           target="_blank">
+                           <img
+                              src="@img/content/landing.jpeg"
+                              alt="landing"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <a
+                           class="portfolio__item lazy-image"
+                           href="https://nikitor141.github.io/binary"
+                           target="_blank">
+                           <img
+                              src="@img/content/binary.jpeg"
+                              alt="binary"
+                              loading="lazy"
+                              width="333"
+                              height="186" />
+                        </a>
+                        <div class="decor-item decor-item--portfolio-html">
+                           &lt;/&gt;
                         </div>
-                        <h3 class="skills__item-title">HTML</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/css.svg" alt="CSS" width="100" height="100">
+                        <div class="decor-item decor-item--portfolio-css">
+                           {&nbsp;&nbsp;}
                         </div>
-                        <h3 class="skills__item-title">CSS</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/js.svg" alt="JS" width="100" height="100">
+                        <div class="decor-item decor-item--portfolio-js">
+                           JS
                         </div>
-                        <h3 class="skills__item-title">JS</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/scss.svg" alt="SCSS" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">SCSS</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/gulp.svg" alt="GULP" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">GULP</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/webpack.svg" alt="WEBPACK" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">WEBPACK</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/git.svg" alt="GIT" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">GIT</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/figma.svg" alt="FIGMA" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">FIGMA</h3>
-                     </li>
-                     <li class="skills__item">
-                        <div class="skills__item-image">
-                           <img src="@img/icons/photoshop.svg" alt="PHOTOSHOP" width="100" height="100">
-                        </div>
-                        <h3 class="skills__item-title">PHOTOSHOP</h3>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </section>
-         <section class="portfolio" id="portfolio">
-            <div class="container">
-               <div class="portfolio__body">
-                  <div class="portfolio__text">
-                     <h2 class="portfolio__title">Мои работы</h2>
-                  </div>
-                  <div class="portfolio__gallery">
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/frontend-portfolio"
-                        target="_blank">
-                        <img src="@img/content/frontend-portfolio.jpg" alt="frontend-portfolio" loading="lazy"
-                           width="333" height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Module02-Shop"
-                        target="_blank">
-                        <img src="@img/content/healthly-food.jpeg" alt="healthly-food" loading="lazy" width="333"
-                           height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Lizard-affilates"
-                        target="_blank">
-                        <img src="@img/content/Lizard-affilates.jpeg" alt="Lizard-affilates" loading="lazy" width="333"
-                           height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/Beautieslife"
-                        target="_blank">
-                        <img src="@img/content/Beautieslife.jpg" alt="Beautieslife" loading="lazy" width="333"
-                           height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/oxygen" target="_blank">
-                        <img src="@img/content/oxygen.jpeg" alt="oxygen" loading="lazy" width="333" height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/bicycle" target="_blank">
-                        <img src="@img/content/bicycle.jpeg" alt="bicycle" loading="lazy" width="333" height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/landing2.0"
-                        target="_blank">
-                        <img src="@img/content/landing.jpeg" alt="landing" loading="lazy" width="333" height="186">
-                     </a>
-                     <a class="portfolio__item lazy-image" href="https://nikitor141.github.io/binary" target="_blank">
-                        <img src="@img/content/binary.jpeg" alt="binary" loading="lazy" width="333" height="186">
-                     </a>
-                     <div class="decor-item decor-item--portfolio-html">&lt;/&gt;</div>
-                     <div class="decor-item decor-item--portfolio-css">{&nbsp;&nbsp;}</div>
-                     <div class="decor-item decor-item--portfolio-js">JS</div>
+                     </div>
                   </div>
                </div>
-            </div>
-         </section>
-      </main>
-      <!-- @@include('html/footer.html', {}) -->
-   </div>
-</body>
-
+            </section>
+         </main>
+         <!-- @@include('html/footer.html', {}) -->
+      </div>
+   </body>
 </html>
