@@ -612,7 +612,7 @@ body {
    &__gallery {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: rem(30);
       padding: rem(80) 0;
       isolation: isolate;
